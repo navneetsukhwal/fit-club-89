@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/fit-club-89/"
+title = "Fit Club 89"
+description = "A premium, responsive website for Fit Club 89 in Sector 89, Gurugram, with gym information, verified business contact details, and clear ways to get in touch."
+version = "1.0.0"
+id = "artifacts/fit-club-89"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/fit-club-89/" ]
+localPort = 19194
+
+[services.development]
+run = "pnpm --filter @workspace/fit-club-89 run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/fit-club-89", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/fit-club-89/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19194"
+BASE_PATH = "/fit-club-89/"

@@ -1,0 +1,385 @@
+Act as a world-class UI/UX designer, senior full-stack web developer, branding expert, and conversion-focused website designer. Build a complete, polished, professional, visually stunning, production-ready website for a real gym business named **Fit Club 89**.
+
+IMPORTANT: Build the entire website in one go. Do not just give me a plan, wireframe, tutorial, or code snippets. Actually create all the necessary project files, implement the website, run it, test it, and fix any errors. I am a complete beginner and do not want to write code myself.
+
+## 1. BUSINESS DETAILS
+
+Use the following business information throughout the website:
+
+* Business name: Fit Club 89
+* Business category: Gym / Fitness Club
+* Contact number: 07428522259
+* Address: NBCC Heights, OR, Pataudi Road, near Petal Apartments, Sector 89, Gurugram, Haryana 122505, India
+* Instagram username: @fitclub_89
+* Instagram profile: https://www.instagram.com/fitclub_89/
+* Customer rating: 4.9 out of 5
+* Total customer reviews: 467
+
+Display the rating as “4.9/5 · 467 Reviews” with attractive star icons. Treat these as business-provided figures, and do not invent additional reviews, testimonials, awards, certifications, memberships, or business claims.
+
+## 2. DESIGN DIRECTION AND BRAND IDENTITY
+
+Create a premium, modern, energetic gym website that looks like it was designed by an expensive professional digital agency.
+
+The website must feel powerful, athletic, bold, clean, trustworthy, and aspirational.
+
+COLOR PALETTE:
+
+* Main background: deep black, #090909
+* Secondary background: charcoal, #141414
+* Card background: #1C1C1C
+* Primary accent: vivid red, #FF3030
+* Secondary accent: white, #FFFFFF
+* Supporting text: muted gray, #A3A3A3
+* Borders: subtle dark gray
+
+Use red strategically for buttons, highlights, active navigation, small glowing accents, icons, and important headings. Avoid making the entire website red. Maintain strong contrast and a sophisticated appearance.
+
+TYPOGRAPHY:
+
+* Use “Bebas Neue” or “Oswald” for large headings.
+* Use “Inter” or “Manrope” for body text and buttons.
+* Use bold, oversized typography for headlines.
+* Use uppercase headings, tight heading spacing, clean paragraphs, and readable body text.
+* Load fonts from Google Fonts or use suitable fallbacks.
+
+VISUAL STYLE:
+
+* Full-width gym photography.
+* Dark overlays on background images.
+* Strong visual hierarchy.
+* Generous spacing and clean alignment.
+* Modern cards with subtle borders.
+* Rounded corners used sparingly.
+* Red gradient accents where appropriate.
+* Subtle red glow effects on selected elements.
+* Consistent iconography using Lucide icons.
+* High-quality, professionally art-directed visual composition.
+
+Do not make the website look like a generic template, a basic school project, or an ordinary AI-generated landing page.
+
+## 3. HERO SECTION
+
+Create an impressive, cinematic hero section that immediately grabs attention.
+
+Use a full-width, high-quality photograph of a modern gym, strength-training equipment, or an athlete training. The image must be relevant to the business and must not falsely depict the actual Fit Club 89 premises as verified photography.
+
+Add a dark gradient overlay so all text remains readable.
+
+Include:
+
+* A small eyebrow label: “YOUR FITNESS. YOUR STRENGTH. YOUR CLUB.”
+* Main headline: “BUILD YOUR STRONGER SELF.”
+* Highlight “STRONGER” or “YOUR STRONGER SELF” in vivid red.
+* Supporting copy: “Train with purpose. Build strength. Push your limits. Take the next step in your fitness journey at Fit Club 89.”
+* Primary CTA: “JOIN THE CLUB”
+* Secondary CTA: “EXPLORE THE GYM”
+* A compact rating element: “★ 4.9/5 · 467 Reviews”
+* A subtle animated scroll indicator.
+
+The primary CTA should smoothly scroll to the contact or visit section. The secondary CTA should scroll to the facilities section.
+
+Use a striking editorial layout with large typography, balanced negative space, and a premium fitness-brand appearance.
+
+## 4. NAVIGATION BAR
+
+Create a responsive, modern navigation bar.
+
+Brand on the left:
+FIT CLUB 89
+
+Navigation links:
+
+* Home
+* About
+* Facilities
+* Why Us
+* Contact
+
+CTA button on the right:
+“LET'S GET STARTED”
+
+Requirements:
+
+* Transparent or dark navigation over the hero.
+* Change to a solid dark background when scrolling.
+* Smooth scrolling to the relevant sections.
+* Mobile hamburger menu with a polished open/close animation.
+* Close the mobile menu after selecting a navigation item.
+* Clear hover states and keyboard accessibility.
+* Keep the navigation compact and elegant.
+
+## 5. ABOUT SECTION
+
+Section label: “ABOUT FIT CLUB 89”
+
+Headline: “MORE THAN A WORKOUT. A STRONGER WAY OF LIFE.”
+
+Write engaging, professional copy about building strength, developing consistency, and making fitness part of everyday life.
+
+Explain that Fit Club 89 is a local fitness destination in Sector 89, Gurugram, without inventing its history, trainer qualifications, opening hours, or specific facilities.
+
+Create an attractive split layout:
+
+* One side: gym or fitness photography.
+* Other side: headline, supporting paragraph, and a CTA to contact the gym.
+
+Add subtle decorative elements and an elegant entrance animation.
+
+## 6. FACILITIES AND TRAINING SECTION
+
+Section label: “TRAIN WITH PURPOSE”
+
+Headline: “EVERY REP. EVERY SET. EVERY STEP FORWARD.”
+
+Create a visually attractive grid of four to six fitness cards. Suggested categories:
+
+* Strength Training
+* Cardio Training
+* Free Weights
+* Functional Fitness
+* Personal Training
+* Fitness for Every Goal
+
+IMPORTANT: These are proposed content categories, not verified features of this specific gym. Present them as editable content and do not claim that any particular facility, service, machine, or personal-training program is available unless verified. Avoid making unsupported factual claims.
+
+Each card should contain:
+
+* A relevant fitness image or visual.
+* A short title.
+* One concise descriptive sentence.
+* A subtle arrow icon.
+* A smooth image zoom or card-hover effect.
+
+Use a sophisticated grid with consistent card heights, responsive spacing, and visually varied but cohesive image compositions.
+
+If the business owner has not confirmed a service, make it easy to edit or remove that card.
+
+## 7. WHY CHOOSE FIT CLUB 89 SECTION
+
+Headline: “YOUR GOALS. YOUR GRIND. YOUR PROGRESS.”
+
+Build four attractive benefit cards focusing on general fitness values:
+
+* Consistency — Make every workout count.
+* Strength — Work towards becoming stronger.
+* Commitment — Build sustainable fitness habits.
+* Community — Make fitness part of your lifestyle.
+
+Keep the messaging motivating but realistic. Do not guarantee weight loss, muscle growth, specific results, or health outcomes.
+
+Use simple icons, dark cards, subtle red highlights, and tasteful hover animations.
+
+## 8. RATINGS AND SOCIAL PROOF
+
+Create a visually impressive customer-rating section.
+
+Display:
+
+* 4.9 / 5
+* Five star icons
+* 467 customer reviews
+
+Use the exact business-provided rating and review count.
+
+Do not fabricate customer names, profile photos, review quotations, or individual testimonials.
+
+Include a button labelled “CONNECT WITH US” that links to the Instagram profile.
+
+If a verified public review page is not available, do not invent a Google Reviews URL. Keep the rating display editable so the owner can update it later.
+
+## 9. GALLERY SECTION
+
+Headline: “INSIDE THE FITNESS LIFESTYLE”
+
+Create a responsive image gallery using high-quality, properly licensed or otherwise permitted gym and fitness imagery.
+
+Requirements:
+
+* Six to eight image tiles.
+* Varied image sizes for an editorial, premium appearance.
+* Subtle hover zoom.
+* Dark image overlays where appropriate.
+* Optional click-to-expand lightbox with accessible close controls.
+* Smooth gallery transitions.
+
+Use relevant images of gym interiors, weights, training equipment, and athletes.
+
+Do not present stock images as confirmed photographs of the actual Fit Club 89 location. Organize the code so the owner can easily replace the images with real gym photographs.
+
+## 10. CONTACT AND LOCATION SECTION
+
+Section label: “YOUR NEXT REP STARTS HERE”
+
+Headline: “READY TO GET STARTED?”
+
+Display the business details clearly:
+
+Fit Club 89
+
+Address:
+NBCC Heights, OR, Pataudi Road, near Petal Apartments, Sector 89, Gurugram, Haryana 122505, India.
+
+Phone:
+07428522259
+
+Instagram:
+@fitclub_89
+
+Create functional contact actions:
+
+* “CALL THE GYM” using a telephone link: tel:07428522259
+* “GET DIRECTIONS” linking to a Google Maps search for the complete business address.
+* “FOLLOW ON INSTAGRAM” linking to https://www.instagram.com/fitclub_89/
+
+Embed a Google Map only if a reliable map embed can be implemented without an API key or unsupported credentials. Otherwise, display a well-designed location panel with a directions button.
+
+Do not invent opening hours, email addresses, WhatsApp availability, or exact map coordinates.
+
+Add a clean contact form with these fields:
+
+* Full name
+* Phone number
+* What would you like to know? (optional message)
+
+Submit button: “REQUEST A CALLBACK”
+
+The form must validate the required fields, display accessible success and error messages, and prevent accidental duplicate submissions.
+
+If no backend or delivery service is configured, clearly explain that the form is a front-end demonstration and do not falsely claim that a real callback request has been delivered. Keep the code ready for a backend integration later.
+
+## 11. FOOTER
+
+Create a premium, minimalist footer with:
+
+* FIT CLUB 89 branding.
+* A short motivational tagline.
+* Quick navigation links.
+* The business phone number.
+* The business address.
+* Instagram icon and link.
+* Copyright year generated dynamically.
+* A “BACK TO TOP” link.
+
+Use a dark background, subtle separators, and small red accent details.
+
+## 12. ANIMATIONS AND INTERACTIONS
+
+Make the site feel smooth, polished, and premium without sacrificing performance.
+
+Implement:
+
+* Smooth scrolling.
+* Hero text entrance animation.
+* Subtle fade-up animations as sections enter the viewport.
+* Staggered animation for cards.
+* Button hover transitions.
+* Small red glow or underline effects on hover.
+* Gentle image zoom on gallery and facility cards.
+* Navigation background transition on scroll.
+* Mobile menu animation.
+* Optional subtle hero image parallax, only if performant.
+* A back-to-top interaction.
+* A functional image lightbox if included.
+
+Use CSS transitions, CSS keyframes, and Intersection Observer where appropriate. Prefer lightweight solutions over unnecessary animation libraries.
+
+Animations must feel refined rather than excessive. Respect the prefers-reduced-motion accessibility setting. Do not make users wait for animations before they can interact with the site.
+
+## 13. TECHNICAL REQUIREMENTS
+
+I am a complete beginner. Build everything for me.
+
+Use a modern, maintainable technology stack supported by the current Replit environment.
+
+Preferred stack:
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS, if compatible with the project setup
+* Lucide React for icons
+
+Use reusable components and clean project structure.
+
+Requirements:
+
+* Create the complete working website, not just a static mockup.
+* Make all navigation links and buttons work.
+* Implement responsive layouts for mobile, tablet, laptop, and large desktop screens.
+* Ensure the layout looks excellent at 360px mobile width and on common desktop screens.
+* Use semantic HTML and accessible labels.
+* Include visible keyboard-focus states.
+* Use descriptive alt text for meaningful images.
+* Optimize images and lazy-load below-the-fold images.
+* Prevent horizontal overflow.
+* Avoid unnecessary dependencies.
+* Ensure the console is free of avoidable errors and warnings.
+* Add appropriate page titles, meta description, favicon, and Open Graph metadata.
+* Include a suitable dark-themed favicon or simple text-based brand mark.
+* Use a consistent design system for spacing, colors, typography, buttons, cards, and transitions.
+* Avoid layout shifts and ensure text remains readable over images.
+* Do not expose secrets or API keys.
+* Do not add a paid dependency or require a paid service just to run the site.
+* Do not use fake loading screens, nonfunctional buttons, or placeholder links.
+
+If Tailwind CSS or another preferred dependency is incompatible with the existing Replit project, choose a stable alternative instead of leaving the project broken.
+
+## 14. SEO AND LOCAL DISCOVERABILITY
+
+Optimize the site for searches related to:
+
+* Fit Club 89
+* Gym in Sector 89, Gurugram
+* Fitness club in Sector 89
+* Gym near Pataudi Road, Gurugram
+
+Include:
+
+* An appropriate title and meta description.
+* Local business information displayed consistently.
+* Open Graph tags.
+* A suitable semantic heading structure.
+* A robots.txt file and sitemap if appropriate for the deployed site.
+* LocalBusiness or SportsActivityLocation structured data only when the relevant properties are supported by verified information.
+
+Do not add unverified opening hours, coordinates, prices, services, or social profiles to structured data.
+
+## 15. PERFORMANCE AND QUALITY
+
+Prioritize:
+
+* Fast initial loading.
+* High-quality visual design.
+* Responsive image sizing.
+* Minimal unnecessary JavaScript.
+* Smooth interactions.
+* Accessible contrast and typography.
+* Stable layout.
+* Clean, maintainable code.
+
+Do not use excessive blur, giant shadows, too many gradients, distracting animations, or a large number of unrelated font styles.
+
+The site must look premium, intentional, and cohesive.
+
+## 16. FINAL EXECUTION INSTRUCTIONS
+
+Work through the entire project autonomously.
+
+1. Inspect the current Replit project.
+2. Create or update all required files.
+3. Implement every section and interaction described above.
+4. Install compatible dependencies if required.
+5. Start the development server.
+6. Check the website in a browser if browser testing is available.
+7. Test navigation, buttons, mobile menu, phone link, Instagram link, form validation, responsive layout, and image loading.
+8. Fix errors, broken links, overflow, and visual issues.
+9. Ensure the project starts successfully using Replit's Run workflow.
+10. Keep all business information easy to edit in one clearly organized configuration file wherever practical.
+
+Do not stop after creating the hero section. Complete the entire website.
+
+FINAL DESIGN GOAL:
+The finished Fit Club 89 website should look like a premium fitness brand's real website: cinematic dark gym imagery, powerful typography, vivid red accents, smooth micro-interactions, beautiful layouts, excellent mobile responsiveness, and clear calls to action that encourage visitors to call, find the location, or connect on Instagram.
+
+Make strong design decisions independently. Do not ask me to choose fonts, colors, layouts, or technical details. Build the best complete version you can with the information provided, and clearly identify anything that requires real business information or backend configuration.
