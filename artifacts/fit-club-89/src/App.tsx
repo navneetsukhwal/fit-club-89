@@ -10,6 +10,9 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
+// Web3Forms access keys are public and intended for client-side form submissions.
+const WEB3FORMS_ACCESS_KEY = 'c2a57c05-b1bc-4b54-8402-474744cabf7a';
+
 const values = [
   { title: 'Consistency', text: 'Make every workout count.', icon: Check, number: '01' },
   { title: 'Strength', text: 'Work towards becoming stronger.', icon: Dumbbell, number: '02' },
@@ -84,23 +87,13 @@ function App() {
       setFormError('Please enter a valid phone number.');
       return;
     }
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim();
-    if (!accessKey || accessKey === 'PASTE-YOUR-KEY-HERE') {
-      setFormError('Callback requests are temporarily unavailable. Please call the gym directly.');
-      return;
-    }
-
     submittingRef.current = true;
     setSubmitting(true);
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
+        body: new URLSearchParams({
+          access_key: WEB3FORMS_ACCESS_KEY,
           name,
           phone,
           message,
