@@ -66,7 +66,7 @@ function App() {
     };
   }, [lightbox]);
 
-  const handleForm = (event: FormEvent<HTMLFormElement>) => {
+  const handleForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (submittingRef.current) return;
     setFormError('');
@@ -75,6 +75,7 @@ function App() {
     const data = new FormData(form);
     const name = String(data.get('name') ?? '').trim();
     const phone = String(data.get('phone') ?? '').trim();
+    const message = String(data.get('message') ?? '').trim();
     if (!name) {
       setFormError('Please enter your name.');
       return;
@@ -83,14 +84,45 @@ function App() {
       setFormError('Please enter a valid phone number.');
       return;
     }
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim();
+    if (!accessKey || accessKey === 'PASTE-YOUR-KEY-HERE') {
+      setFormError('Callback requests are temporarily unavailable. Please call the gym directly.');
+      return;
+    }
+
     submittingRef.current = true;
     setSubmitting(true);
-    window.setTimeout(() => {
-      setFormMessage('This form is a frontend demonstration only. Your details were not sent and no callback has been requested. Please call the gym directly.');
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name,
+          phone,
+          message,
+          subject: `Callback request for ${name}`,
+          from_name: 'Fit Club 89 website',
+          botcheck: '',
+        }),
+      });
+      const result: { success?: boolean } = await response.json();
+      if (!response.ok || !result.success) {
+        setFormError('Sorry, your request could not be sent. Please call the gym directly.');
+        return;
+      }
+
+      setFormMessage('Thank you, we’ll call you back');
+      form.reset();
+    } catch {
+      setFormError('Sorry, your request could not be sent. Please check your connection or call the gym directly.');
+    } finally {
       setSubmitting(false);
       submittingRef.current = false;
-      form.reset();
-    }, 450);
+    }
   };
 
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.address)}`;
@@ -252,8 +284,7 @@ function App() {
                   <div><label htmlFor="message" className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em]">What would you like to know? <span className="font-medium normal-case tracking-normal text-white/45">(optional)</span></label><textarea id="message" name="message" rows={3} maxLength={500} className="field resize-y" placeholder="Tell us what you'd like to discuss" data-testid="input-message" /></div>
                   {formError && <p role="alert" className="border-l-2 border-[#ff3030] bg-[#ff3030]/10 px-3 py-2 text-xs text-[#ffb2b2]" data-testid="status-form-error">{formError}</p>}
                   {formMessage && <p role="status" aria-live="polite" className="border-l-2 border-[#ff3030] bg-[#ff3030]/10 px-3 py-3 text-xs leading-5 text-white/85" data-testid="status-form-feedback">{formMessage}</p>}
-                  <button type="submit" disabled={submitting} className="btn-primary w-full disabled:cursor-wait disabled:opacity-60" data-testid="button-submit-callback">{submitting ? 'CHECKING DETAILS…' : 'REQUEST A CALLBACK'} <ArrowRight size={14} /></button>
-                  <p className="text-[10px] leading-4 text-white/45">Frontend demonstration only. This form is not connected to a delivery service, so submitting it does not send your details or request a callback. Please call the gym directly.</p>
+                  <button type="submit" disabled={submitting} className="btn-primary w-full disabled:cursor-wait disabled:opacity-60" data-testid="button-submit-callback">{submitting ? 'SENDING REQUEST…' : 'REQUEST A CALLBACK'} <ArrowRight size={14} /></button>
                 </form>
               </div>
             </div>
