@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUp, Check, Dumbbell, Instagram, MapPin, Menu, Phone, Star, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUp, Check, Clock3, Dumbbell, Instagram, MapPin, Menu, Phone, Star, X } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { business, stockPhoto } from './business';
 
 const navItems = [
@@ -9,9 +10,6 @@ const navItems = [
   { label: 'Why us', href: '#why-us' },
   { label: 'Contact', href: '#contact' },
 ];
-
-// Web3Forms access keys are public and intended for client-side form submissions.
-const WEB3FORMS_ACCESS_KEY = 'c2a57c05-b1bc-4b54-8402-474744cabf7a';
 
 const values = [
   { title: 'Consistency', text: 'Make every workout count.', icon: Check, number: '01' },
@@ -28,10 +26,6 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const [formMessage, setFormMessage] = useState('');
-  const [formError, setFormError] = useState('');
-  const [submitting, setSubmitting] = useState(false);
-  const submittingRef = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
@@ -69,56 +63,8 @@ function App() {
     };
   }, [lightbox]);
 
-  const handleForm = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (submittingRef.current) return;
-    setFormError('');
-    setFormMessage('');
-    const form = event.currentTarget;
-    const data = new FormData(form);
-    const name = String(data.get('name') ?? '').trim();
-    const phone = String(data.get('phone') ?? '').trim();
-    const message = String(data.get('message') ?? '').trim();
-    if (!name) {
-      setFormError('Please enter your name.');
-      return;
-    }
-    if (!phone || !/^[+()\-\s\d]{7,20}$/.test(phone)) {
-      setFormError('Please enter a valid phone number.');
-      return;
-    }
-    submittingRef.current = true;
-    setSubmitting(true);
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: new URLSearchParams({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          name,
-          phone,
-          message,
-          subject: `Callback request for ${name}`,
-          from_name: 'Fit Club 89 website',
-          botcheck: '',
-        }),
-      });
-      const result: { success?: boolean } = await response.json();
-      if (!response.ok || !result.success) {
-        setFormError('Sorry, your request could not be sent. Please call the gym directly.');
-        return;
-      }
-
-      setFormMessage('Thank you, we’ll call you back');
-      form.reset();
-    } catch {
-      setFormError('Sorry, your request could not be sent. Please check your connection or call the gym directly.');
-    } finally {
-      setSubmitting(false);
-      submittingRef.current = false;
-    }
-  };
-
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.address)}`;
+  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(business.address)}&output=embed`;
 
   return (
     <div className="grain min-h-[100dvh] overflow-hidden bg-[#090909] text-[#f5f5f5]">
@@ -252,33 +198,90 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section-pad bg-[#090909]">
-          <div className="wrap">
-            <div className="rise mb-12"><div className="eyebrow mb-4">YOUR NEXT REP STARTS HERE</div><h2 className="display text-[clamp(4rem,9vw,8rem)] leading-[.82]">READY TO GET<br /><span className="text-[#ff3030]">STARTED?</span></h2></div>
-            <div className="grid gap-10 lg:grid-cols-[.95fr_1.05fr]">
-              <div className="rise">
-                <div className="mb-6 border-t border-white/15 pt-5"><span className="eyebrow">VISIT THE CLUB</span><h3 className="display mt-2 text-3xl">{business.name}</h3></div>
-                <div className="flex gap-4 border-t border-white/10 py-5"><MapPin size={18} className="mt-1 shrink-0 text-[#ff4545]" /><p className="max-w-[400px] text-sm leading-6 text-[#b4b4b4]">{business.address}</p></div>
-                <a href={`tel:${business.phone}`} className="flex items-center gap-4 border-t border-white/10 py-5 text-sm font-bold transition hover:text-[#ff4545]" data-testid="link-call-contact"><Phone size={18} className="text-[#ff4545]" />{business.phone}</a>
-                <a href={business.instagramUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4 border-t border-white/10 py-5 text-sm font-bold transition hover:text-[#ff4545]" data-testid="link-instagram-contact"><Instagram size={18} className="text-[#ff4545]" />{business.instagramHandle}</a>
-                <div className="mt-3 flex flex-wrap gap-3"><a href={`tel:${business.phone}`} className="btn-primary" data-testid="link-call-gym">CALL THE GYM <Phone size={14} /></a><a href={mapsUrl} target="_blank" rel="noreferrer" className="btn-outline" data-testid="link-directions">GET DIRECTIONS <ArrowRight size={14} /></a><a href={business.instagramUrl} target="_blank" rel="noreferrer" className="btn-outline" data-testid="link-follow-instagram">FOLLOW ON INSTAGRAM <Instagram size={14} /></a></div>
-                <div className="mt-8 border border-white/10 bg-[#121212] p-5">
-                  <div className="eyebrow mb-3">FIND US IN SECTOR 89</div>
-                  <p className="text-xs leading-5 text-[#a3a3a3]">NBCC Heights, near Petal Apartments<br />Pataudi Road · Gurugram, Haryana 122505</p>
-                  <a href={mapsUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-[10px] font-extrabold tracking-[.12em] text-[#ff4545]" data-testid="link-location-map">OPEN ADDRESS IN MAPS <ArrowRight size={13} /></a>
+        <section id="contact" className="relative isolate overflow-hidden section-pad bg-[#090909]">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#ff3030]/70 to-transparent" />
+          <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[700px] -translate-x-1/2 rounded-full bg-[#ff3030]/[.06] blur-3xl" />
+          <div className="wrap relative z-10">
+            <div className="rise grid gap-8 border-b border-white/10 pb-9 lg:grid-cols-[1fr_1.08fr] lg:items-end lg:gap-12">
+              <div>
+                <div className="eyebrow mb-4 flex items-center gap-3"><span className="red-rule" /> SECTOR 89 · GURUGRAM</div>
+                <h2 className="display text-[clamp(3.8rem,8vw,7rem)] leading-[.84]">
+                  READY TO<br /><span className="text-[#ff3030]">GET STARTED?</span>
+                </h2>
+                <p className="mt-5 max-w-lg text-sm leading-6 text-[#a3a3a3]">Questions about membership? Call the club or start a WhatsApp chat.</p>
+              </div>
+              <div>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <a
+                    href={`tel:${business.phone}`}
+                    className="btn-primary min-h-[68px] !px-5 !py-4 text-sm !tracking-normal sm:text-base"
+                    data-testid="link-call-now"
+                  >
+                    <Phone size={20} aria-hidden="true" />
+                    <span>Call Now</span>
+                  </a>
+                  <a
+                    href="https://wa.me/917428522259?text=Hi%20Fit%20Club%2089%2C%20I%20want%20to%20know%20about%20membership"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[68px] items-center justify-center gap-3 bg-[#25D366] px-5 py-4 text-sm font-extrabold text-[#061a0d] transition hover:-translate-y-0.5 hover:bg-[#20bd5a] focus-visible:outline-[#25D366] sm:text-base"
+                    data-testid="link-whatsapp-contact"
+                  >
+                    <FaWhatsapp size={23} aria-hidden="true" />
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
+                <p className="mt-3 text-center text-[10px] font-semibold uppercase tracking-[.12em] text-white/45 sm:text-right">Membership questions welcome</p>
+              </div>
+            </div>
+
+            <div className="rise mt-8 grid gap-5 lg:grid-cols-[.88fr_1.12fr]">
+              <div className="border border-white/10 bg-[#111] p-5 sm:p-7">
+                <div className="eyebrow mb-5">CONTACT & VISIT</div>
+                <h3 className="display mb-5 text-3xl">{business.name}</h3>
+                <div className="space-y-0">
+                  <div className="flex gap-4 border-t border-white/10 py-5">
+                    <MapPin size={19} className="mt-0.5 shrink-0 text-[#ff4545]" aria-hidden="true" />
+                    <div>
+                      <div className="mb-1 text-[10px] font-extrabold uppercase tracking-[.15em] text-white/50">Address</div>
+                      <p className="text-sm leading-6 text-[#d0d0d0]">{business.address}</p>
+                    </div>
+                  </div>
+                  <a href={`tel:${business.phone}`} className="flex gap-4 border-t border-white/10 py-5 transition hover:text-[#ff4545]" data-testid="link-contact-phone">
+                    <Phone size={19} className="mt-0.5 shrink-0 text-[#ff4545]" aria-hidden="true" />
+                    <span>
+                      <span className="mb-1 block text-[10px] font-extrabold uppercase tracking-[.15em] text-white/50">Phone</span>
+                      <span className="text-sm font-bold">{business.phone}</span>
+                    </span>
+                  </a>
+                  <div className="flex gap-4 border-t border-white/10 py-5">
+                    <Clock3 size={19} className="mt-0.5 shrink-0 text-[#ff4545]" aria-hidden="true" />
+                    <div>
+                      <div className="mb-1 text-[10px] font-extrabold uppercase tracking-[.15em] text-white/50">Timings</div>
+                      <p className="text-sm leading-6 text-[#d0d0d0]">Call or WhatsApp to confirm today’s hours.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="rise border border-white/10 bg-[#111] p-6 md:p-9">
-                <div className="eyebrow mb-3">LET'S TALK</div><h3 className="display text-4xl md:text-5xl">REQUEST A CALLBACK</h3>
-                <p className="mt-3 text-xs leading-5 text-[#a3a3a3]">Leave your details and the topic you would like to discuss.</p>
-                <form className="mt-7 space-y-4" onSubmit={handleForm} noValidate>
-                  <div><label htmlFor="full-name" className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em]">Full name <span className="text-[#ff4545]">*</span></label><input id="full-name" name="name" autoComplete="name" className="field" required maxLength={100} placeholder="Your name" data-testid="input-full-name" /></div>
-                  <div><label htmlFor="phone-number" className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em]">Phone number <span className="text-[#ff4545]">*</span></label><input id="phone-number" type="tel" name="phone" autoComplete="tel" inputMode="tel" className="field" required maxLength={20} placeholder="Your phone number" data-testid="input-phone-number" /></div>
-                  <div><label htmlFor="message" className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em]">What would you like to know? <span className="font-medium normal-case tracking-normal text-white/45">(optional)</span></label><textarea id="message" name="message" rows={3} maxLength={500} className="field resize-y" placeholder="Tell us what you'd like to discuss" data-testid="input-message" /></div>
-                  {formError && <p role="alert" className="border-l-2 border-[#ff3030] bg-[#ff3030]/10 px-3 py-2 text-xs text-[#ffb2b2]" data-testid="status-form-error">{formError}</p>}
-                  {formMessage && <p role="status" aria-live="polite" className="border-l-2 border-[#ff3030] bg-[#ff3030]/10 px-3 py-3 text-xs leading-5 text-white/85" data-testid="status-form-feedback">{formMessage}</p>}
-                  <button type="submit" disabled={submitting} className="btn-primary w-full disabled:cursor-wait disabled:opacity-60" data-testid="button-submit-callback">{submitting ? 'SENDING REQUEST…' : 'REQUEST A CALLBACK'} <ArrowRight size={14} /></button>
-                </form>
+
+              <div className="overflow-hidden border border-white/10 bg-[#111]">
+                <div className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-6">
+                  <div>
+                    <div className="eyebrow mb-1">FIND THE CLUB</div>
+                    <p className="text-xs font-semibold text-white/70">Sector 89, Gurugram</p>
+                  </div>
+                  <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-2 text-[10px] font-extrabold uppercase tracking-[.1em] text-[#ff5555] transition hover:text-white" data-testid="link-directions">
+                    Open in Maps <ArrowRight size={13} aria-hidden="true" />
+                  </a>
+                </div>
+                <iframe
+                  title="Map to Fit Club 89 in Sector 89, Gurugram"
+                  src={mapEmbedUrl}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="block h-[280px] w-full border-0 grayscale-[.15] sm:h-[320px]"
+                  data-testid="map-contact-location"
+                />
               </div>
             </div>
           </div>

@@ -1,0 +1,1 @@
+- [Verified opening hours](fit-club-89-hours.md) — The site's source brief says hours are unverified; never publish guessed times.
