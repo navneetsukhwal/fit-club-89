@@ -1,0 +1,8 @@
+[build]
+  command = "pnpm --filter ./artifacts/fit-club-89 build"
+  publish = "artifacts/fit-club-89/dist/public"
+
+[build.environment]
+  PORT = "3000"
+  BASE_PATH = "/"
+  NODE_VERSION = "22"
