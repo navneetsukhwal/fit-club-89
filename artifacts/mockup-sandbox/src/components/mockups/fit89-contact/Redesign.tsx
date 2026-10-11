@@ -3,6 +3,10 @@ import { ArrowUpRight, Clock3, MapPin, Phone } from 'lucide-react';
 const address =
   'NBCC Heights, OR, Pataudi Road, near Petal Apartments, Sector 89, Gurugram, Haryana 122505, India';
 const phone = '07428522259';
+const hours = [
+  { days: 'Monday–Saturday', opening: '5:00 AM', closing: '10:00 PM' },
+  { days: 'Sunday', opening: '9:00 AM', closing: '2:00 PM' },
+];
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
 const whatsappUrl =
@@ -117,7 +121,14 @@ export function Redesign() {
               </div>
               <div className="fc-info-row">
                 <Clock3 className="fc-info-icon" size={18} />
-                <div><p className="fc-label">Hours</p><p className="fc-value">Call or WhatsApp to confirm today&apos;s timings.</p></div>
+                <div>
+                  <p className="fc-label">Hours</p>
+                  <div className="fc-value" style={{ display: 'grid', gap: 4 }}>
+                    {hours.map(({ days, opening, closing }) => (
+                      <div key={days}>{days}<span style={{ color: '#aaa8a5' }}> · </span>{opening}–{closing}</div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

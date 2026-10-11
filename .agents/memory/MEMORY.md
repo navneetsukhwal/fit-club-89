@@ -1,1 +1,1 @@
-- [Verified opening hours](fit-club-89-hours.md) — The site's source brief says hours are unverified; never publish guessed times.
+- [Verified opening hours](fit-club-89-hours.md) — Confirmed hours: Monday–Saturday 5 AM–10 PM; Sunday 9 AM–2 PM.

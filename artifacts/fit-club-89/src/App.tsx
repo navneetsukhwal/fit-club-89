@@ -258,7 +258,15 @@ function App() {
                     <Clock3 size={19} className="mt-0.5 shrink-0 text-[#ff4545]" aria-hidden="true" />
                     <div>
                       <div className="mb-1 text-[10px] font-extrabold uppercase tracking-[.15em] text-white/50">Timings</div>
-                      <p className="text-sm leading-6 text-[#d0d0d0]">Call or WhatsApp to confirm today’s hours.</p>
+                      <div className="space-y-1 text-sm leading-6 text-[#d0d0d0]">
+                        {business.hours.map(({ days, opening, closing }) => (
+                          <p key={days}>
+                            <span className="text-white/75">{days}</span>
+                            <span className="mx-1.5 text-white/35">·</span>
+                            {opening}–{closing}
+                          </p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

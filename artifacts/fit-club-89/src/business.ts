@@ -3,6 +3,10 @@ export const business = {
   category: 'Gym / Fitness Club',
   phone: '07428522259',
   address: 'NBCC Heights, OR, Pataudi Road, near Petal Apartments, Sector 89, Gurugram, Haryana 122505, India',
+  hours: [
+    { days: 'Monday–Saturday', opening: '5:00 AM', closing: '10:00 PM' },
+    { days: 'Sunday', opening: '9:00 AM', closing: '2:00 PM' },
+  ],
   instagramHandle: '@fitclub_89',
   instagramUrl: 'https://www.instagram.com/fitclub_89/',
   rating: '4.9',
